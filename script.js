@@ -95,3 +95,63 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+function showNotification(message) {
+    let notificationBox = document.createElement("div");
+    notificationBox.innerText = message;
+    notificationBox.classList.add("notification");
+
+    document.body.appendChild(notificationBox);
+    
+    setTimeout(() => {
+        notificationBox.remove();
+    }, 3000);
+}
+
+// Update existing functions to trigger notifications
+function postStory() {
+    let storyText = document.getElementById("storyInput").value;
+    if (storyText.trim() === "") {
+        alert("Please write something before posting!");
+        return;
+    }
+
+    let newStory = document.createElement("li");
+    newStory.innerText = storyText;
+    document.getElementById("storyList").appendChild(newStory);
+
+    document.getElementById("storyInput").value = "";
+
+    showNotification("📢 Your story has been posted!");
+}
+
+function postComment() {
+    let commentText = document.getElementById("commentInput").value;
+    if (commentText.trim() === "") {
+        alert("Please write a comment before posting!");
+        return;
+    }
+
+    let newComment = document.createElement("li");
+    newComment.innerText = commentText;
+    document.getElementById("commentList").appendChild(newComment);
+
+    document.getElementById("commentInput").value = ""; 
+
+    showNotification("💬 New comment posted!");
+}
+
+function react(emoji) {
+    if (!reactions[emoji]) {
+        reactions[emoji] = 0;
+    }
+    reactions[emoji]++;
+    
+    let reactionText = "Reactions: ";
+    for (let key in reactions) {
+        reactionText += `${key} ${reactions[key]} `;
+    }
+
+    document.getElementById("reactionCount").innerText = reactionText;
+    
+    showNotification(`🔥 Someone reacted with ${emoji}!`);
+        }
