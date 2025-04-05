@@ -63,3 +63,9 @@ input {
     margin-top: 5px;
     border-radius: 5px;
 }
+let likeCounter = 0;
+
+function likeStory() {
+    likeCounter++;
+    document.getElementById("likeCount").innerText = "Likes: " + likeCounter;
+}
