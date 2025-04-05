@@ -64,3 +64,17 @@ button:hover {
     margin-top: 5px;
     border-radius: 5px;
 }
+button {
+    padding: 10px;
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #e84118;
+}
