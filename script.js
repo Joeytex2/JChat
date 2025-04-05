@@ -69,3 +69,18 @@ function likeStory() {
     likeCounter++;
     document.getElementById("likeCount").innerText = "Likes: " + likeCounter;
 }
+let reactions = {};
+
+function react(emoji) {
+    if (!reactions[emoji]) {
+        reactions[emoji] = 0;
+    }
+    reactions[emoji]++;
+    
+    let reactionText = "Reactions: ";
+    for (let key in reactions) {
+        reactionText += `${key} ${reactions[key]} `;
+    }
+
+    document.getElementById("reactionCount").innerText = reactionText;
+}
