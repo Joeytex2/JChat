@@ -219,3 +219,27 @@ function displayChatHistory(user) {
     let chatHistory = JSON.parse(localStorage.getItem("chatHistory")) || {};
 
     if (chatHistory
+import { registerUser, loginUser } from "./auth.js";
+import { sendDirectMessage, displayChatHistory } from "./messages.js";
+
+// Handle User Signup
+function register() {
+    let email = document.getElementById("emailInput").value;
+    let password = document.getElementById("passwordInput").value;
+    registerUser(email, password);
+}
+
+// Handle User Login
+function login() {
+    let email = document.getElementById("emailInput").value;
+    let password = document.getElementById("passwordInput").value;
+    loginUser(email, password);
+}
+
+// Handle Sending Messages
+function sendMessage() {
+    let selectedUser = document.getElementById("userSelect").value;
+    let messageText = document.getElementById("chatInput").value;
+    sendDirectMessage(selectedUser, messageText);
+    displayChatHistory(selectedUser);
+}
