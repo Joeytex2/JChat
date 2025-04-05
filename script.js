@@ -186,3 +186,36 @@ function sendDirectMessage() {
 
     showNotification(`💬 Message sent to ${selectedUser}!`);
 }
+function sendDirectMessage() {
+    let selectedUser = document.getElementById("userSelect").value;
+    let messageText = document.getElementById("chatInput").value;
+    
+    if (messageText.trim() === "") {
+        alert("Please type a message before sending!");
+        return;
+    }
+
+    // Load previous messages
+    let chatHistory = JSON.parse(localStorage.getItem("chatHistory")) || {};
+
+    if (!chatHistory[selectedUser]) {
+        chatHistory[selectedUser] = [];
+    }
+
+    chatHistory[selectedUser].push(messageText);
+    
+    localStorage.setItem("chatHistory", JSON.stringify(chatHistory));
+
+    displayChatHistory(selectedUser);
+
+    document.getElementById("chatInput").value = "";
+    showNotification(`💬 Message sent to ${selectedUser}!`);
+}
+
+function displayChatHistory(user) {
+    let chatBox = document.getElementById("chatBox");
+    chatBox.innerHTML = ""; // Clear previous content
+
+    let chatHistory = JSON.parse(localStorage.getItem("chatHistory")) || {};
+
+    if (chatHistory
