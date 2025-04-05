@@ -34,3 +34,32 @@ function postComment() {
     document.getElementById("commentInput").value = ""; 
     alert("Your comment has been posted!");
 }
+#commentSection {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#commentList {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+}
+
+#commentList li {
+    background: #f8f9fa;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
