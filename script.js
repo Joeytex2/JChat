@@ -62,3 +62,36 @@ function react(emoji) {
     
     document.getElementById("reactionCount").innerText = reactionText;
 }
+document.addEventListener("DOMContentLoaded", () => {
+    // Handle User Registration
+    const registerForm = document.getElementById("registerForm");
+    if (registerForm) {
+        registerForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let username = document.getElementById("username").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            
+            localStorage.setItem("user", JSON.stringify({ username, email }));
+            alert("Account created successfully! Please log in.");
+            window.location.href = "login.html";
+        });
+    }
+
+    // Handle User Login
+    const loginForm = document.getElementById("loginForm");
+    if (loginForm) {
+        loginForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let savedUser = JSON.parse(localStorage.getItem("user"));
+            let loginEmail = document.getElementById("loginEmail").value;
+            
+            if (savedUser && savedUser.email === loginEmail) {
+                alert("Login successful! Welcome back, " + savedUser.username);
+                window.location.href = "profile.html";
+            } else {
+                alert("Invalid credentials. Please try again.");
+            }
+        });
+    }
+});
