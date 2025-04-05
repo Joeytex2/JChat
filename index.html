@@ -15,35 +15,38 @@
             <a href="pages/profile.html">Profile</a>
         </nav>
     </header>
+
     <main>
-        <section id="stories">
-            <h2>Trending Stories</h2>
-            <p>Share your thoughts and experiences with the world!</p>
+        <section id="trendingStories">
+            <h2>🔥 Trending Stories</h2>
+            <ul id="trendingList"></ul>
+        </section>
+
+        <section id="postStory">
+            <h2>Share Your Story</h2>
+            <textarea id="storyInput" placeholder="Write your story here..." rows="4"></textarea>
+            <button onclick="postStory()">Post Story</button>
+            <h3>Recent Stories</h3>
+            <ul id="storyList"></ul>
+        </section>
+
+        <section id="reactionSection">
+            <h3>React to this story:</h3>
+            <button onclick="react('👍')">👍</button>
+            <button onclick="react('❤️')">❤️</button>
+            <button onclick="react('😂')">😂</button>
+            <button onclick="react('😢')">😢</button>
+            <p id="reactionCount">Reactions: None</p>
+        </section>
+
+        <section id="commentSection">
+            <h2>Comments</h2>
+            <input type="text" id="commentInput" placeholder="Write a comment..." />
+            <button onclick="postComment()">Post Comment</button>
+            <ul id="commentList"></ul>
         </section>
     </main>
+
     <script src="script.js"></script>
 </body>
 </html>
-<section id="postStory">
-    <h2>Share Your Story</h2>
-    <textarea id="storyInput" placeholder="Write your story here..." rows="4"></textarea>
-    <button onclick="postStory()">Post Story</button>
-    <h3>Recent Stories</h3>
-    <ul id="storyList"></ul>
-</section>
-<section id="commentSection">
-    <h2>Comments</h2>
-    <input type="text" id="commentInput" placeholder="Write a comment..." />
-    <button onclick="postComment()">Post Comment</button>
-    <ul id="commentList"></ul>
-</section>
-<button onclick="likeStory()">❤️ Like</button>
-<p id="likeCount">Likes: 0</p>
-<div id="reactionSection">
-    <h3>React to this story:</h3>
-    <button onclick="react('👍')">👍</button>
-    <button onclick="react('❤️')">❤️</button>
-    <button onclick="react('😂')">😂</button>
-    <button onclick="react('😢')">😢</button>
-    <p id="reactionCount">Reactions: None</p>
-</div>
