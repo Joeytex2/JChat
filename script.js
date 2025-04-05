@@ -20,3 +20,17 @@ function postStory() {
 
     alert("Your story has been posted!");
 }
+function postComment() {
+    let commentText = document.getElementById("commentInput").value;
+    if (commentText.trim() === "") {
+        alert("Please write a comment before posting!");
+        return;
+    }
+
+    let newComment = document.createElement("li");
+    newComment.innerText = commentText;
+    document.getElementById("commentList").appendChild(newComment);
+    
+    document.getElementById("commentInput").value = ""; 
+    alert("Your comment has been posted!");
+}
