@@ -78,3 +78,12 @@ button {
 button:hover {
     background-color: #e84118;
 }
+#reactionSection {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    font-size: 20px;
+    margin: 5px;
+}
