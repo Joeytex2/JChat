@@ -50,3 +50,24 @@
     <script src="script.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JChat</title>
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+    <input type="email" id="emailInput" placeholder="Enter Email">
+    <input type="password" id="passwordInput" placeholder="Enter Password">
+    <button onclick="register()">Sign Up</button>
+    <button onclick="login()">Login</button>
+
+    <select id="userSelect">
+        <option value="friend@example.com">Friend</option>
+    </select>
+    <input type="text" id="chatInput" placeholder="Type a message">
+    <button onclick="sendMessage()">Send</button>
+
+    <div id="chatBox"></div>
+</body>
+</html>
