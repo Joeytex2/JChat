@@ -155,3 +155,17 @@ function react(emoji) {
     
     showNotification(`🔥 Someone reacted with ${emoji}!`);
         }
+function sendMessage() {
+    let messageText = document.getElementById("chatInput").value;
+    if (messageText.trim() === "") {
+        alert("Please type a message before sending!");
+        return;
+    }
+
+    let chatBox = document.getElementById("chatBox");
+    let newMessage = document.createElement("p");
+    newMessage.innerText = "You: " + messageText;
+    chatBox.appendChild(newMessage);
+
+    document.getElementById("chatInput").value = "";
+}
