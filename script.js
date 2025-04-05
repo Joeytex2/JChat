@@ -169,3 +169,20 @@ function sendMessage() {
 
     document.getElementById("chatInput").value = "";
 }
+function sendDirectMessage() {
+    let selectedUser = document.getElementById("userSelect").value;
+    let messageText = document.getElementById("chatInput").value;
+    if (messageText.trim() === "") {
+        alert("Please type a message before sending!");
+        return;
+    }
+
+    let chatBox = document.getElementById("chatBox");
+    let newMessage = document.createElement("p");
+    newMessage.innerText = `To ${selectedUser}: ${messageText}`;
+    chatBox.appendChild(newMessage);
+
+    document.getElementById("chatInput").value = "";
+
+    showNotification(`💬 Message sent to ${selectedUser}!`);
+}
